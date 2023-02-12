@@ -13,6 +13,10 @@ npm start
 
 ## Development
 
+### Development Environment
+
+We use VS Code for development. It will suggest recommended extensions for this project.
+
 ### Internationalisation
 
 Our locale data is stored in [this Google Sheet](https://docs.google.com/spreadsheets/d/19cagWgvcenffTAW4suwBqWyQxvIqOjIjFRy5MaDcoJA/edit?usp=sharing). We use a [script](./scripts/i18n.js) to convert this data into `.json`-files that are placed in the `locale` folder of this repository.
