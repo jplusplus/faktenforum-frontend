@@ -1,0 +1,17 @@
+{
+  "a": {
+    "b": "ab"
+  },
+  "aaa": {
+    "c": "aaac"
+  },
+  "abc": {
+    "def": "abcdef"
+  },
+  "common": {
+    "no": "no",
+    "test": "test",
+    "yes": "yes"
+  },
+  "locale": "en"
+}

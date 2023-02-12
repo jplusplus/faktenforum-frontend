@@ -13,6 +13,17 @@ npm start
 
 ## Development
 
-### Internationalization
+### Internationalisation
 
-Faktenforum will use `i18n` to provide translated strings. This is not yet set up.
+Our locale data is stored in [this Google Sheet](https://docs.google.com/spreadsheets/d/19cagWgvcenffTAW4suwBqWyQxvIqOjIjFRy5MaDcoJA/edit?usp=sharing). We use a [script](./scripts/i18n.js) to convert this data into `.json`-files that are placed in the `locale` folder of this repository.
+
+As this uses the Google Sheets APIs, ask your favorite developer for their `.credentials.json` file so you can use the process below.
+
+### Updating locale files
+
+To update the locale data in the repository you run the following:
+
+```bash
+node scripts/i18n.js
+git add -A locales/ && git commit locales/ -m 'chore: updated locales'
+```
