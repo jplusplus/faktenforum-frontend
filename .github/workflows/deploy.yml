@@ -28,8 +28,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: ["push"]
     steps:
-        - uses: wirgen/portainer-stack-redeploy-action@v1.1
+        - uses: luminos-company/portami@v1.1
           with:
-            portainerUrl: 'https://port.hive.beabee.io'
-            accessToken: ${{ secrets.PORTAINER_ACCESSTOKEN }}
-            stackId: 51
+            endpoint: 'https://port.hive.beabee.io'
+            access_token: ${{ secrets.PORTAINER_ACCESSTOKEN }}
+            stack_id: 'faktenforum' # The unique name of the stack like: "cdn_minio"
+            file_path: 'my_awesome_stack_file.yaml' # The stack file path to use
+            prune: true # Prune the stack
+            pull: true # Pull the images
