@@ -23,3 +23,12 @@ jobs:
           build-args: |
             REVISION=${{ steps.getrev.outputs.revision }}
           tags: correctiv/faktenforum-frontend
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+        - uses:  wirgen/portainer-stack-redeploy-action@v1.1
+          with:
+            portainerUrl: 'https://port.hive.beabee.io'
+            accessToken: ${{ secrets.PORTAINER_ACCESSTOKEN }}
+            stackId: 51
