@@ -33,6 +33,5 @@ jobs:
             endpoint: 'https://port.hive.beabee.io'
             access_token: ${{ secrets.PORTAINER_ACCESSTOKEN }}
             stack_id: 'faktenforum' # The unique name of the stack like: "cdn_minio"
-            file_path: 'my_awesome_stack_file.yaml' # The stack file path to use
             prune: true # Prune the stack
             pull: true # Pull the images
