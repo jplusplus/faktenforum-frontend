@@ -1,7 +1,7 @@
 <template>
-    <div>
-        <Logo></Logo>
-    </div>
+  <div>
+    <Logo></Logo>
+  </div>
 </template>
 
 <script lang="ts" setup>
