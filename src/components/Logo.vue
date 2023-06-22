@@ -1,5 +1,5 @@
 <template>
-  <img :src="defaultLogo" :alt="altText" />
+  <img :src="defaultLogo" :alt="altText" width="400" height="auto" />
 </template>
 
 <script lang="ts" setup>
