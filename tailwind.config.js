@@ -24,7 +24,8 @@ module.exports = {
       yellow: { DEFAULT: "#FDE162" },
       transparent: "transparent",
       black: colors.black,
-      white: colors.white
+      white: colors.white,
+      slate: colors.slate
     }
   },
   plugins: []
