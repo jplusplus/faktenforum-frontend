@@ -1,10 +1,9 @@
 <route lang="yaml">
-name: claims
+name: submission
 meta:
   layout: default
 </route>
 
 <template>
-  <h1>Claims</h1>
+  <div>submit something</div>
 </template>
-<script lang="ts" setup></script>
