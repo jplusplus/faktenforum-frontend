@@ -4,7 +4,7 @@
       <ul>
         <!-- this shows all of the titles -->
         <li
-          v-for="(tab, index) in tabs"
+          v-for="(tab, index) in (tabs as InstanceType<typeof TabContent>[])"
           :key="index"
           :class="activeTabIndex == index ? 'active' : ''"
           @click="changeTab(index)"
@@ -21,14 +21,16 @@
   </div>
 </template>
 
-<script setup>
-import { onMounted, reactive, ref } from "vue";
+<script lang="ts" setup>
+import { Ref, onMounted, reactive, ref } from "vue";
+
+import TabContent from "./TabContent.vue";
 
 const props = defineProps(["customClass"]);
 let tabContainer = ref(null);
-let tabHeaders = ref(null);
-let tabs = ref(null);
-let activeTabIndex = ref(0);
+let tabHeaders = ref<HTMLLIElement[] | null>(null);
+let tabs = ref<InstanceType<typeof TabContent>[] | null>(null);
+let activeTabIndex = ref<number>(0);
 
 onMounted(() => {
   tabs.value = [...tabContainer.value.querySelectorAll(".tab")];
@@ -38,7 +40,7 @@ onMounted(() => {
     }
   }
 });
-const changeTab = (index) => {
+const changeTab = (index: number) => {
   activeTabIndex = index;
   for (let x of [...tabs.value, ...tabHeaders.value]) {
     x.classList.remove("active");
