@@ -5,8 +5,8 @@ import TabNav from "../TabNav.vue";
 
 <template>
   <TabNav>
-    <TabContent title="First Title"><div>"A"</div></TabContent>
-    <TabContent title="Second Title"><div>"B"</div></TabContent>
+    <TabContent active="true" title="First Title"><div>A</div></TabContent>
+    <TabContent title="Second Title"><div>B</div></TabContent>
     <TabContent title="Third Title"><div>C</div></TabContent>
   </TabNav>
 </template>

@@ -4,9 +4,7 @@
   </div>
 </template>
 
-<script setup>
-import { onMounted, ref } from "vue";
-
+<script lang="ts" setup>
 const props = defineProps(["active"]);
 </script>
 
