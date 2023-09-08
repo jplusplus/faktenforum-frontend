@@ -1,18 +1,31 @@
-FROM node:16.20-alpine as builder
+ARG NODE_VERSION=18
 
-WORKDIR /opt/faktenforum-frontend
+FROM node:${NODE_VERSION}-slim as base
 
-COPY package.json package-lock.json ./
-RUN npm ci
+ARG PORT=3000
 
-COPY . ./
-RUN NODE_ENV=production npx vite build
+ENV NODE_ENV=production
 
-FROM nginx:1.23.3-alpine
+WORKDIR /src
 
-ARG REVISION
+# Build
+FROM base as build
 
-ENV APP_REVISION=${REVISION}
+COPY --link package.json package-lock.json .
+RUN npm install --production=false
 
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-COPY --from=builder --chown=nginx:nginx /opt/faktenforum-frontend/dist/ /usr/share/nginx/html
+COPY --link . .
+
+RUN npm run build
+RUN npm prune
+
+# Run
+FROM base
+
+ENV PORT=80
+
+COPY --from=build /src/.output /src/.output
+# Optional, only needed if you rely on unbundled dependencies
+# COPY --from=build /src/node_modules /src/node_modules
+
+CMD [ "node", ".output/server/index.mjs" ]
