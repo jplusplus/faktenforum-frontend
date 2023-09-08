@@ -1,11 +1,18 @@
 module.exports = {
-  extends: [
-    'plugin:vue/vue3-recommended',
-    '@vue/typescript/recommended',
-    '@vue/prettier',
-    '@vue/prettier/@typescript-eslint',
-  ],
-  rules: {
-    'no-console': 'error',
+  root: true,
+  env: {
+    browser: true,
+    node: true
   },
+  parser: "vue-eslint-parser",
+  parserOptions: {
+    parser: "@typescript-eslint/parser"
+  },
+  extends: ["@nuxtjs/eslint-config-typescript", "plugin:prettier/recommended"],
+  plugins: [],
+  rules: {
+    "vue/no-multiple-template-root": "off",
+    "vue/v-slot-style": "off",
+    "vue/no-setup-props-destructure": "off"
+  }
 };
