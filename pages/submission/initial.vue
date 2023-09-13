@@ -8,6 +8,4 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-import Submissionform from "../../components/claimsubmission/Submissionform.vue";
-</script>
+<script lang="ts" setup></script>
