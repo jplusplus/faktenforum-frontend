@@ -1,4 +1,4 @@
 <template>
-  <h1>Claims</h1>
+  <h1>Submit Claim</h1>
 </template>
 <script lang="ts" setup></script>

@@ -7,5 +7,5 @@
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "cSpell.words": ["Nuxt", "treeshaking", "vuetify"]
+  "cSpell.words": ["Faktenforum", "Nuxt", "treeshaking", "vuetify"]
 }

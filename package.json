@@ -9,14 +9,13 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@invictus.codes/nuxt-vuetify": "^0.3.0",
     "@nuxt/devtools": "latest",
     "@nuxtjs/i18n": "^8.0.0-rc.4",
-    "@nuxtjs/tailwindcss": "^6.8.0",
-    "color2k": "^2.0.2",
     "i18n": "^0.15.1",
     "nuxt": "^3.7.1",
-    "sass": "^1.66.1"
+    "sass": "^1.66.1",
+    "sass-loader": "^13.3.2",
+    "vuetify-nuxt-module": "^0.5.10"
   },
   "dependencies": {
     "vue-i18n": "^9.3.0",
