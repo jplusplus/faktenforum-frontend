@@ -1,17 +1,54 @@
 {
-  "a": {
-    "b": "ab"
-  },
-  "aaa": {
-    "c": "aaac"
-  },
-  "abc": {
-    "def": "abcdef"
-  },
   "common": {
     "no": "nein",
+    "source": "Quelle",
+    "submit": "senden",
     "test": "test_de",
+    "upload": "hochladen",
     "yes": "ja"
   },
-  "locale": "de"
+  "landingPage": {
+    "callToActions": {
+      "join": {
+        "text": "Du findest CORRECTIV.Faktenforum spannend? Melde Dich an und wir halten Dich zum Projekt und unseren Veranstaltungen auf dem Laufenden.",
+        "title": "Anmeldung zur Community"
+      },
+      "learn": {
+        "text": "Das Team von CORRECTIV.Faktenforum bietet regelmäßig Workshops und andere Events an - online und vielleicht auch mal in Deiner Nähe. Wir freuen uns, Dich bei einer Veranstaltung kennenzulernen. ",
+        "title": "Lern uns kennen"
+      },
+      "submit": {
+        "text": "Du ärgerst Dich über eine Falschmeldung oder fragst Dich, ob eine Behauptung stimmt? Dann reiche einen Hinweis mit der Originaldatei oder einem Link zur Originaldatei ein. Du hast schon erste Quellen gefunden, die die Behauptung widerlegen? Ergänze sie gerne in unserem Online-Formular!",
+        "title": "Behauptung einreichen"
+      }
+    }
+  },
+  "locale": "de",
+  "submitPage": {
+    "claim": {
+      "dropzone": {
+        "claim": {
+          "label": "Geben Sie eine Beschreibung ein",
+          "text": "Beschreiben Sie die Fehlinformation, die Sie gesehen haben"
+        },
+        "file": "Datei auswählen oder hierher ziehen",
+        "link": {
+          "label": "Link einfügen",
+          "title": "Geben Sie einen Link zu einer hochzuladenden Datei ein"
+        }
+      },
+      "tab": {
+        "claim": "Beschreibe die Falschmeldung",
+        "file": "Eine Datei hochladen",
+        "link": "Direkter Link"
+      },
+      "text": "Sie können eine Beschwerde auf drei verschiedene Arten einreichen: Laden Sie eine Datei hoch, geben Sie einen direkten Link zu einer Datei an oder beschreiben Sie eine Fehlinformation, die Sie beobachtet haben. Hinterlassen Sie Ihre E-Mail-Adresse, damit wir uns mit Ihnen in Verbindung setzen können!",
+      "title": "Eine Falschmeldung einreichen"
+    },
+    "source": {
+      "acknowledgement": "Vielen Dank für Ihren Beitrag!",
+      "text": "Sie können eine Quelle angeben, die die Behauptung unterstützt oder widerlegt. Fügen Sie den Originaltext Ihrer Quelle oder einen Link zur Quelle hinzu. Beschreiben Sie, warum die Quelle für Ihren Fakten-Check wichtig ist.",
+      "title": "Eine Quelle einreichen"
+    }
+  }
 }

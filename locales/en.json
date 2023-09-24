@@ -1,17 +1,54 @@
 {
-  "a": {
-    "b": "ab"
-  },
-  "aaa": {
-    "c": "aaac"
-  },
-  "abc": {
-    "def": "abcdef"
-  },
   "common": {
     "no": "no",
+    "source": "Source",
+    "submit": "submit",
     "test": "test",
+    "upload": "upload",
     "yes": "yes"
   },
-  "locale": "en"
+  "landingPage": {
+    "callToActions": {
+      "join": {
+        "text": "Sign up to our mailing list. We'll let you know once our platform goes live. ",
+        "title": "Join Faktenforum"
+      },
+      "learn": {
+        "text": "Interested in fact-checking? Check out our video tutorials and learning materials. ",
+        "title": "Learn about fact-checking "
+      },
+      "submit": {
+        "text": "You come across a suspicious information? Submit it here or via the CORRECTIV.Faktencheck chatbot. ",
+        "title": "Submit a claim"
+      }
+    }
+  },
+  "locale": "en",
+  "submitPage": {
+    "claim": {
+      "dropzone": {
+        "claim": {
+          "label": "Enter a description",
+          "text": "Describe the missinformation you saw"
+        },
+        "file": "Select file or drag and drop here",
+        "link": {
+          "label": "Insert a Link",
+          "title": "Enter a link to a file to upload"
+        }
+      },
+      "tab": {
+        "claim": "Describe a claim",
+        "file": "Upload a file",
+        "link": "Direct link"
+      },
+      "text": "You can submit a claim in three different ways: upload a file, provide a direct link to a file or describe a misinformation you witnessed. Leave your email address so we can get back to you!",
+      "title": "Submit a claim"
+    },
+    "source": {
+      "acknowledgement": "Thank your for contributing!",
+      "text": "You can submit a source supporting or refuting the claim. Add the original text of your source or a link to the source. Describe why the source is important to your fact-check.",
+      "title": "Submit a source"
+    }
+  }
 }

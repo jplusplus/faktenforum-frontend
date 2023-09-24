@@ -8,23 +8,28 @@
  * The script can optional load a second sheet to overwrite the main sheet, we add a new sheet for a
  * branch so changes for different features are kept separate.
  */
-const fs = require('fs');
-const path = require('path');
-const { google } = require('googleapis');
-const MarkdownIt = require('markdown-it');
+const fs = require("fs");
+const path = require("path");
+const { google } = require("googleapis");
+const MarkdownIt = require("markdown-it");
 
-const simpleMd = new MarkdownIt('zero').enable(['emphasis', 'link']);
+const simpleMd = new MarkdownIt("zero").enable(["emphasis", "link"]);
 
 const optHandlers = {
-  md: (data) => simpleMd.render(data),
+  md: (data) => simpleMd.render(data)
 };
+if (fs.existsSync(path.join(__dirname, ".credentials.json"))) {
+  console.log("Using credentials from " + path.join(__dirname, ".credentials.json"));
+} else {
+  throw new Error("No credentials found");
+}
 
 const auth = new google.auth.GoogleAuth({
-  keyFile: path.join(__dirname, '.credentials.json'),
-  scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly'],
+  keyFile: path.join(__dirname, ".credentials.json"),
+  scopes: ["https://www.googleapis.com/auth/spreadsheets.readonly"]
 });
 
-const sheets = google.sheets({ version: 'v4', auth });
+const sheets = google.sheets({ version: "v4", auth });
 
 const localeData = {};
 
@@ -33,7 +38,7 @@ function processKeyData(keyOpts, keyData) {
     return (
       keyOpts
         // Apply handlers
-        .reduce((data, opt) => optHandlers[opt](data), keyData || '')
+        .reduce((data, opt) => optHandlers[opt](data), keyData || "")
         // Santize special i18n character
         .replace(/@/g, "{'@'}")
     );
@@ -41,23 +46,21 @@ function processKeyData(keyOpts, keyData) {
 }
 
 async function loadSheet(name) {
-  console.log('Loading sheet ' + name);
+  console.log("Loading sheet " + name);
 
   const resp = await sheets.spreadsheets.values.get({
-    spreadsheetId: '19cagWgvcenffTAW4suwBqWyQxvIqOjIjFRy5MaDcoJA',
-    range: name,
+    spreadsheetId: "19cagWgvcenffTAW4suwBqWyQxvIqOjIjFRy5MaDcoJA",
+    range: name
   });
 
   const headers = resp.data.values[0];
   const rows = resp.data.values
     .slice(1)
-    .map((row) =>
-      Object.fromEntries(headers.map((header, i) => [header, row[i]]))
-    )
+    .map((row) => Object.fromEntries(headers.map((header, i) => [header, row[i]])))
     .filter((row) => row.key);
 
   // Add locales to data
-  const locales = headers.filter((h) => h !== 'key' && !h.startsWith('!'));
+  const locales = headers.filter((h) => h !== "key" && !h.startsWith("!"));
   for (const locale of locales) {
     if (!localeData[locale]) {
       localeData[locale] = {};
@@ -66,8 +69,8 @@ async function loadSheet(name) {
 
   // Construct nested objects from a.b.c key paths
   for (const row of rows) {
-    const keyParts = row.key.split('.');
-    const [lastKeyPart, ...keyOpts] = keyParts.pop().split(':');
+    const keyParts = row.key.split(".");
+    const [lastKeyPart, ...keyOpts] = keyParts.pop().split(":");
 
     for (const locale of locales) {
       let localeDataPart = localeData[locale];
@@ -78,7 +81,7 @@ async function loadSheet(name) {
         localeDataPart = localeDataPart[part];
       }
       if (localeDataPart[lastKeyPart] !== undefined) {
-        console.log('Duplicate key ' + row.key);
+        console.log("Duplicate key " + row.key);
       }
       localeDataPart[lastKeyPart] = processKeyData(keyOpts, row[locale]);
     }
@@ -89,25 +92,25 @@ async function loadSheet(name) {
 function sortObject(obj) {
   const ret = {};
   for (const key of Object.keys(obj).sort()) {
-    ret[key] = typeof obj[key] === 'object' ? sortObject(obj[key]) : obj[key];
+    ret[key] = typeof obj[key] === "object" ? sortObject(obj[key]) : obj[key];
   }
   return ret;
 }
 
 (async () => {
-  await loadSheet('Sheet1');
+  await loadSheet("Sheet1");
 
-  if (process.argv[2] && process.argv[2] !== 'main') {
+  if (process.argv[2] && process.argv[2] !== "main") {
     try {
       await loadSheet(process.argv[2]);
     } catch {}
   }
 
   for (const locale in localeData) {
-    console.log('Updating ' + locale);
+    console.log("Updating " + locale);
     fs.writeFileSync(
-      path.join(__dirname, '../locales', locale + '.json'),
-      JSON.stringify(sortObject(localeData[locale]), null, 2) + '\n'
+      path.join(__dirname, "../locales", locale + ".json"),
+      JSON.stringify(sortObject(localeData[locale]), null, 2) + "\n"
     );
   }
 })().catch((err) => {

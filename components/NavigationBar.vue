@@ -1,4 +1,18 @@
 <template>
+  <v-system-bar color="background">
+    <v-menu>
+      <template v-slot:activator="{ props }">
+        <v-btn color="primary" v-bind="props" variant="plain" density="compact">
+          {{ locale }}
+        </v-btn>
+      </template>
+      <v-list>
+        <v-list-item v-for="lang in availableLocales" :key="lang" @click="locale = lang">
+          <v-list-item-title>{{ lang }}</v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-menu>
+  </v-system-bar>
   <v-app-bar
     color="background"
     elevation="0"
@@ -22,7 +36,9 @@
     </template>
   </v-app-bar>
 </template>
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+const { locale, availableLocales } = useI18n({ useScope: "global" });
+</script>
 <style scoped>
 .color-primary--text {
   color: rgb(var(--v-theme-primary)) !important;

@@ -2,9 +2,37 @@
 export default defineNuxtConfig({
   ssr: true,
   devtools: { enabled: true },
-  modules: ['vuetify-nuxt-module'],
+  modules: ['@nuxtjs/i18n', 'vuetify-nuxt-module',],
   experimental: {
     inlineSSRStyles: false
+  },
+  i18n: {
+    locales: [{
+      code: 'en',
+      iso: 'en',
+      file: 'en.json',
+      name: 'English',
+      dir: 'ltr',
+    }, {
+      code: 'de',
+      iso: 'de',
+      file: 'de.json',
+      name: 'Deutsch',
+      dir: 'ltr',
+    }],
+    lazy: true,
+    strategy: 'no_prefix',
+    detectBrowserLanguage: false,
+    // put your json files in this folder or configure your own path
+    langDir: 'locales/',
+    defaultLocale: 'de',
+    types: 'composition',
+    pages: undefined,
+    dynamicRouteParams: false,
+    skipSettingLocaleOnNavigate: true,
+    // debug: true,
+    // Vue configuration file, you can move it to the root folder
+    vueI18n: './i18n.config.ts'
   },
   vuetify: {
     /* vuetify options */
