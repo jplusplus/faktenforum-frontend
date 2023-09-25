@@ -31,7 +31,10 @@
           "label": "Enter a description",
           "text": "Describe the missinformation you saw"
         },
-        "file": "Select file or drag and drop here",
+        "file": {
+          "drop": "or drag and drop here",
+          "select": "Select file"
+        },
         "link": {
           "label": "Insert a Link",
           "title": "Enter a link to a file to upload"

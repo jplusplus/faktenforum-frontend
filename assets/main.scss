@@ -1,0 +1,9 @@
+@use "vuetify/settings" with (
+  // $font-size-root: 20px,
+  $heading-font-family: "Barlow",
+  $body-font-family: "Barlow",
+  $button-text-transform: "none"
+);
+
+@import url("fonts.scss");
+@import url("utils.scss");

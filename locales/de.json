@@ -31,7 +31,10 @@
           "label": "Geben Sie eine Beschreibung ein",
           "text": "Beschreiben Sie die Fehlinformation, die Sie gesehen haben"
         },
-        "file": "Datei auswählen oder hierher ziehen",
+        "file": {
+          "drop": "oder hierher ziehen",
+          "select": "Datei auswählen"
+        },
         "link": {
           "label": "Link einfügen",
           "title": "Geben Sie einen Link zu einer hochzuladenden Datei ein"

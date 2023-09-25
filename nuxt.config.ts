@@ -72,7 +72,7 @@ export default defineNuxtConfig({
       /* nuxt-vuetify module options */
 
 
-      styles: { configFile: "/assets/settings.scss" }, // true | 'none' | 'expose' | 'sass' | { configFile: string },
+      styles: { configFile: "/assets/main.scss" }, // true | 'none' | 'expose' | 'sass' | { configFile: string },
 
     }
   },
