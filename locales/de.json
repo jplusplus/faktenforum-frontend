@@ -4,6 +4,7 @@
     "source": "Quelle",
     "submit": "senden",
     "test": "test_de",
+    "type": "Typ",
     "upload": "hochladen",
     "yes": "ja"
   },
@@ -25,33 +26,31 @@
   },
   "locale": "de",
   "submitPage": {
-    "claim": {
-      "dropzone": {
-        "claim": {
-          "label": "Geben Sie eine Beschreibung ein",
-          "text": "Beschreiben Sie die Fehlinformation, die Sie gesehen haben"
-        },
-        "file": {
-          "drop": "oder hierher ziehen",
-          "select": "Datei auswählen"
-        },
-        "link": {
-          "label": "Link einfügen",
-          "title": "Geben Sie einen Link zu einer hochzuladenden Datei ein"
-        }
+    "acknowledgement": "Vielen Dank für Ihren Beitrag!",
+    "dropzone": {
+      "file": {
+        "drop": "oder hierher ziehen",
+        "select": "Datei auswählen"
       },
-      "tab": {
-        "claim": "Beschreibe die Falschmeldung",
-        "file": "Eine Datei hochladen",
-        "link": "Direkter Link"
-      },
-      "text": "Sie können eine Beschwerde auf drei verschiedene Arten einreichen: Laden Sie eine Datei hoch, geben Sie einen direkten Link zu einer Datei an oder beschreiben Sie eine Fehlinformation, die Sie beobachtet haben. Hinterlassen Sie Ihre E-Mail-Adresse, damit wir uns mit Ihnen in Verbindung setzen können!",
-      "title": "Eine Falschmeldung einreichen"
+      "link": {
+        "label": "Link einfügen",
+        "title": "Geben Sie einen Link zu einer hochzuladenden Datei ein"
+      }
     },
+    "info": {
+      "description": "Beschreibung",
+      "title": "Titel der Falschmeldung"
+    },
+    "request": "Können Sie zusätzliche Informationen liefern?",
     "source": {
-      "acknowledgement": "Vielen Dank für Ihren Beitrag!",
       "text": "Sie können eine Quelle angeben, die die Behauptung unterstützt oder widerlegt. Fügen Sie den Originaltext Ihrer Quelle oder einen Link zur Quelle hinzu. Beschreiben Sie, warum die Quelle für Ihren Fakten-Check wichtig ist.",
       "title": "Eine Quelle einreichen"
-    }
+    },
+    "tab": {
+      "file": "Eine Datei hochladen",
+      "link": "Direkter Link"
+    },
+    "text": "Sie können eine Beschwerde auf drei verschiedene Arten einreichen: Laden Sie eine Datei hoch, geben Sie einen direkten Link zu einer Datei an oder beschreiben Sie eine Fehlinformation, die Sie beobachtet haben. Hinterlassen Sie Ihre E-Mail-Adresse, damit wir uns mit Ihnen in Verbindung setzen können!",
+    "title": "Eine Falschmeldung einreichen"
   }
 }

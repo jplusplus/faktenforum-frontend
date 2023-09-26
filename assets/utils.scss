@@ -6,3 +6,17 @@
 .text-color-secondary {
   color: rgb(var(--v-theme-secondary)) !important;
 }
+
+.background-color-primary {
+  background-color: rgb(var(--v-theme-surface-primary)) !important;
+}
+
+.dashed-primary-outline {
+  border: 2px dashed rgb(var(--v-theme-primary-lighten-3));
+  border-radius: 0px;
+}
+
+.solid-primary-outline {
+  border: 1px solid rgb(var(--v-theme-primary-lighten-3));
+  border-radius: 2px;
+}

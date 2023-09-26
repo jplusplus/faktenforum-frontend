@@ -4,6 +4,7 @@
     "source": "Source",
     "submit": "submit",
     "test": "test",
+    "type": "Type",
     "upload": "upload",
     "yes": "yes"
   },
@@ -25,33 +26,31 @@
   },
   "locale": "en",
   "submitPage": {
-    "claim": {
-      "dropzone": {
-        "claim": {
-          "label": "Enter a description",
-          "text": "Describe the missinformation you saw"
-        },
-        "file": {
-          "drop": "or drag and drop here",
-          "select": "Select file"
-        },
-        "link": {
-          "label": "Insert a Link",
-          "title": "Enter a link to a file to upload"
-        }
+    "acknowledgement": "Thank your for contributing!",
+    "dropzone": {
+      "file": {
+        "drop": "or drag and drop here",
+        "select": "Select file"
       },
-      "tab": {
-        "claim": "Describe a claim",
-        "file": "Upload a file",
-        "link": "Direct link"
-      },
-      "text": "You can submit a claim in three different ways: upload a file, provide a direct link to a file or describe a misinformation you witnessed. Leave your email address so we can get back to you!",
-      "title": "Submit a claim"
+      "link": {
+        "label": "Insert a Link",
+        "title": "Enter a link to a file to upload"
+      }
     },
+    "info": {
+      "description": "Description",
+      "title": "Claim title"
+    },
+    "request": "Can you provide some additional information?",
     "source": {
-      "acknowledgement": "Thank your for contributing!",
       "text": "You can submit a source supporting or refuting the claim. Add the original text of your source or a link to the source. Describe why the source is important to your fact-check.",
       "title": "Submit a source"
-    }
+    },
+    "tab": {
+      "file": "Upload a file",
+      "link": "Direct link"
+    },
+    "text": "You can submit a claim in three different ways: upload a file, provide a direct link to a file or describe a misinformation you witnessed. Leave your email address so we can get back to you!",
+    "title": "Submit a claim"
   }
 }

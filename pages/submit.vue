@@ -1,94 +1,113 @@
 <template>
-  <v-container class="pa-0 my-0 fluid d-flex flex-column">
+  <v-container class="pa-0 my-0 fluid d-flex flex-column" fluid>
     <v-sheet class="px-10 pt-16 h-100 flex-grow-1">
-      <h1 class="text-h5 text-color-primary pb-4">{{ $t("submitPage.claim.title") }}</h1>
-      <div class="text-caption pb-2">{{ $t("submitPage.claim.text") }}</div>
-      <v-tabs v-model="tab" color="primary">
-        <v-tab value="file">{{ $t("submitPage.claim.tab.file") }}</v-tab>
-        <v-tab value="link">{{ $t("submitPage.claim.tab.link") }}</v-tab>
-        <v-tab value="description">{{ $t("submitPage.claim.tab.claim") }}</v-tab>
-      </v-tabs>
-      <v-window v-model="tab" class="py-6">
-        <v-window-item value="file">
-          <v-card class="dashed-primary-outline d-flex flex-column" variant="outlined">
-            <!-- Hidden file input -->
-            <input type="file" ref="fileInput" style="display: none" @change="handleFileChange" />
+      <h1 class="text-h5 text-color-primary pb-4">{{ $t("submitPage.title") }}</h1>
+      <div class="text-caption pb-2">{{ $t("submitPage.text") }}</div>
+      <div class="pa-6 fluid d-flex flex-column background-color-primary solid-primary-outline">
+        <div class="pa-1">{{ $t("submitPage.info.title") }}</div>
+        <v-text-field
+          style="max-width: 361px"
+          class=""
+          variant="solo"
+          density="compact"
+          single-line
+          :label="$t('submitPage.dropzone.link.label')"
+        ></v-text-field>
+        <div class="pa-1">{{ $t("submitPage.info.description") }}</div>
+        <v-textarea
+          class=""
+          variant="solo"
+          density="compact"
+          rows="3"
+          :label="$t('submitPage.dropzone.link.label')"
+        ></v-textarea>
+        <v-tabs v-model="tab" color="primary">
+          <v-tab value="file">{{ $t("submitPage.tab.file") }}</v-tab>
+          <v-tab value="link">{{ $t("submitPage.tab.link") }}</v-tab>
+        </v-tabs>
+        <v-window v-model="tab" class="py-6">
+          <v-window-item value="file">
+            <v-card class="dashed-primary-outline d-flex flex-column" variant="outlined">
+              <!-- Hidden file input -->
+              <input
+                type="file"
+                ref="fileInput"
+                style="display: none"
+                @change="handleFileDialogChange"
+              />
 
-            <file-drop-zone
-              class="d-flex flex-column flex-grow-1"
-              @files-dropped="handleFileChange"
-              v-slot="{ dropZoneActive }"
-              ><div
-                class="flex-grow-1"
-                :style="{
-                  'background-color': dropZoneActive
-                    ? 'rgb(var(--v-theme-primary-darken-3'
-                    : 'transparent'
-                }"
+              <file-drop-zone
+                class="d-flex flex-column flex-grow-1"
+                @files-dropped="handleFiles"
+                v-slot="{ dropZoneActive }"
+                ><div
+                  class="flex-grow-1"
+                  :style="{
+                    'background-color': dropZoneActive
+                      ? 'rgb(var(--v-theme-primary-darken-3'
+                      : 'transparent'
+                  }"
+                >
+                  <div class="d-flex justify-center pt-14">
+                    <v-btn
+                      variant="text"
+                      color="primary"
+                      size="xlarge"
+                      @click="openFileDialog()"
+                      prepend-icon="mdi-plus-circle"
+                    >
+                      <template v-slot:prepend>
+                        <v-icon color="primary" size="48"></v-icon>
+                      </template>
+                      {{ $t("submitPage.dropzone.file.select") }}</v-btn
+                    >
+                  </div>
+                  <div class="d-flex justify-center pt-2 text-color-primary">
+                    {{ $t("submitPage.dropzone.file.drop") }}
+                  </div>
+                </div>
+              </file-drop-zone>
+            </v-card>
+            <div class="d-flex justify-center pt-6">
+              <v-btn color="primary" variant="outlined" size="large" class="unfilled-button">
+                {{ $t("common.upload") }}</v-btn
               >
-                <div class="d-flex justify-center pt-14">
-                  <v-btn
-                    variant="text"
-                    color="primary"
-                    size="xlarge"
-                    @click="openFileDialog()"
-                    prepend-icon="mdi-plus-circle"
-                  >
-                    <template v-slot:prepend>
-                      <v-icon color="primary" size="48"></v-icon>
-                    </template>
-                    {{ $t("submitPage.claim.dropzone.file.select") }}</v-btn
-                  >
-                </div>
-                <div class="d-flex justify-center pt-2 text-color-primary">
-                  {{ $t("submitPage.claim.dropzone.file.drop") }}
-                </div>
+            </div>
+          </v-window-item>
+          <v-window-item value="link">
+            <v-card class="dashed-primary-outline d-flex flex-column" variant="outlined">
+              <div class="d-flex justify-center align-center pt-14 pb-4">
+                <v-icon color="primary" size="48">mdi-link</v-icon>
+                <span class="text-subtitle text-color-primary">
+                  {{ $t("submitPage.dropzone.link.title") }}
+                </span>
               </div>
-            </file-drop-zone>
-          </v-card>
-          <div class="d-flex justify-center pt-6">
-            <v-btn color="primary" variant="outlined" size="large" class="unfilled-button">
-              {{ $t("common.upload") }}</v-btn
-            >
-          </div>
-        </v-window-item>
-        <v-window-item value="link">
-          <v-card class="dashed-primary-outline d-flex flex-column" variant="outlined">
-            <div class="d-flex justify-center align-center pt-14 pb-4">
-              <v-icon color="primary" size="48">mdi-link</v-icon>
-              <span class="text-subtitle text-color-primary">
-                {{ $t("submitPage.claim.dropzone.link.title") }}
-              </span>
+              <div class="d-flex justify-center">
+                <v-text-field
+                  style="max-width: 361px"
+                  class=""
+                  variant="outlined"
+                  density="compact"
+                  single-line
+                  :label="$t('submitPage.dropzone.link.label')"
+                ></v-text-field>
+              </div>
+            </v-card>
+            <div class="d-flex justify-center pt-6">
+              <v-btn color="primary" variant="outlined" size="large" class="unfilled-button">
+                {{ $t("common.upload") }}</v-btn
+              >
             </div>
-            <div class="d-flex justify-center">
-              <v-text-field
-                style="max-width: 361px"
-                class=""
-                variant="outlined"
-                density="compact"
-                single-line
-                :label="$t('submitPage.claim.dropzone.link.label')"
-              ></v-text-field>
-            </div>
-          </v-card>
-          <div class="d-flex justify-center pt-6">
-            <v-btn color="primary" variant="outlined" size="large" class="unfilled-button">
-              {{ $t("common.upload") }}</v-btn
-            >
-          </div>
-        </v-window-item>
-        <v-window-item value="description">
-          <v-card class="dashed-primary-outline" variant="outlined">
-            <div class="d-flex justify-center pt-14"></div>
-          </v-card>
-          <div class="d-flex justify-center pt-6">
-            <v-btn color="primary" variant="outlined" size="large" class="unfilled-button">
-              {{ $t("common.upload") }}</v-btn
-            >
-          </div>
-        </v-window-item>
-      </v-window>
+          </v-window-item>
+        </v-window>
+      </div>
+      <div class="d-flex justify-center py-12">
+        <v-btn color="primary" size="large" class="unfilled-button">
+          {{ $t("common.submit") }}</v-btn
+        >
+      </div>
     </v-sheet>
+    <div style="height: 120px"></div>
   </v-container>
 </template>
 <script lang="ts" setup>
@@ -100,21 +119,18 @@ const openFileDialog = () => {
   fileInput.value?.click();
 };
 
-const handleFileChange = (event: Event) => {
+function handleFileDialogChange(event: Event) {
   const target = event.target as HTMLInputElement;
-  const selectedFile = target.files?.[0];
-  if (selectedFile) {
-    console.log("Selected file:", selectedFile.name);
+  handleFiles(target.files);
+}
+function handleFiles(files: FileList | File[] | null) {
+  if (files) {
+    console.log("Selected file:", files[0].name);
     // Handle the file here (e.g., read its content, upload to server, etc.)
   }
-  console.log("Selected Files ", event);
-};
+}
 </script>
 <style scoped>
-.dashed-primary-outline {
-  border: 2px dashed rgb(var(--v-theme-primary));
-  border-radius: 0px;
-}
 .v-container {
   max-width: 800px;
   min-height: 600px;

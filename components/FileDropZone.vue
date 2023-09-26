@@ -11,8 +11,6 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, defineEmits } from "vue";
-
 // Define event type
 interface FileDroppedEvent {
   (event: "files-dropped", files: File[]): void;
