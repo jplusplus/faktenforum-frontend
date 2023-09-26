@@ -25,7 +25,7 @@
     <v-sheet tag="section" class="pa-10">
       <v-row>
         <v-col cols="12" xs="12" sm="6" md="4" lg="4" xl="4">
-          <h2>{{ $t("landingPage.callToActions.join.title") }}</h2>
+          <h4 class="text-h4">{{ $t("landingPage.callToActions.join.title") }}</h4>
           <span>
             {{ $t("landingPage.callToActions.join.text") }}
           </span>
@@ -36,19 +36,19 @@
             dense
             variant="outlined"
           />
-          <v-btn class="w-100" color="primary" variant="outlined"> Sign Up </v-btn>
+          <v-btn class="w-100" color="primary" variant="flat"> Sign Up </v-btn>
         </v-col>
         <v-col cols="12" xs="12" sm="6" md="4" lg="4" xl="4">
-          <h2>{{ $t("landingPage.callToActions.submit.title") }}</h2>
+          <h4 class="text-h4">{{ $t("landingPage.callToActions.submit.title") }}</h4>
           <span>
             {{ $t("landingPage.callToActions.submit.text") }}
           </span>
           <NuxtLink to="/submit">
-            <v-btn class="w-100" color="primary" variant="outlined"> Submit Claim </v-btn>
+            <v-btn class="w-100" color="primary" variant="flat"> Submit Claim </v-btn>
           </NuxtLink>
         </v-col>
         <v-col cols="12" xs="12" sm="12" md="4" lg="4" xl="4">
-          <h2>{{ $t("landingPage.callToActions.learn.title") }}</h2>
+          <h4 class="text-h4">{{ $t("landingPage.callToActions.learn.title") }}</h4>
           <span>
             {{ $t("landingPage.callToActions.learn.text") }}
           </span>

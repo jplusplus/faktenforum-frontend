@@ -23,7 +23,12 @@
     tag="nav"
   >
     <div class="d-flex align-center h-100 pl-4">
-      <v-img src="/images/logo-horizontal-red.png" height="60" width="209" alt="Faktenforum Logo" />
+      <v-img
+        src="/images/logo-horizontal-black.png"
+        height="60"
+        width="209"
+        alt="Faktenforum Logo"
+      />
     </div>
 
     <template v-slot:append>
@@ -31,7 +36,7 @@
       <v-btn color="primary" class="px-6" variant="text">News</v-btn>
       <v-btn color="primary" class="pe-10 mr-6" variant="text">FAQ</v-btn>
       <NuxtLink to="/join">
-        <v-btn color="white" class="px-10 color-primary--text" variant="flat">Join</v-btn>
+        <v-btn color="primary" class="px-10 text-color-secondary" variant="flat">Join</v-btn>
       </NuxtLink>
     </template>
   </v-app-bar>
