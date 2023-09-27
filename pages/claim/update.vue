@@ -4,6 +4,8 @@
       <h1 class="text-h5 text-color-primary pb-4">{{ $t("submitPage.title") }}</h1>
       <div class="text-caption pb-2">{{ $t("submitPage.text") }}</div>
       <div class="pa-6 fluid d-flex flex-column background-color-primary solid-primary-outline">
+        <div>{{ $t("submitPage.acknowledgement") }}</div>
+        <div class="pb-6">{{ $t("submitPage.request") }}</div>
         <div class="pa-1">{{ $t("submitPage.info.title") }}</div>
         <v-text-field
           style="max-width: 361px"
@@ -11,7 +13,7 @@
           variant="solo"
           density="compact"
           single-line
-          :label="$t('submitPage.dropzone.link.label')"
+          :label="$t('submitPage.claim.label.title')"
         ></v-text-field>
         <div class="pa-1">{{ $t("submitPage.info.description") }}</div>
         <v-textarea
@@ -19,8 +21,10 @@
           variant="solo"
           density="compact"
           rows="3"
-          :label="$t('submitPage.dropzone.link.label')"
+          :label="$t('submitPage.claim.label.description')"
         ></v-textarea>
+        <claim-source-list v-model="(claim as any)" />
+
         <v-tabs v-model="tab" color="primary">
           <v-tab value="file">{{ $t("submitPage.tab.file") }}</v-tab>
           <v-tab value="link">{{ $t("submitPage.tab.link") }}</v-tab>
@@ -36,7 +40,7 @@
                 @change="handleFileDialogChange"
               />
 
-              <file-drop-zone
+              <common-file-drop-zone
                 class="d-flex flex-column flex-grow-1"
                 @files-dropped="handleFiles"
                 v-slot="{ dropZoneActive }"
@@ -66,7 +70,7 @@
                     {{ $t("submitPage.dropzone.file.drop") }}
                   </div>
                 </div>
-              </file-drop-zone>
+              </common-file-drop-zone>
             </v-card>
             <div class="d-flex justify-center pt-6">
               <v-btn color="primary" variant="outlined" size="large" class="unfilled-button">
@@ -102,17 +106,24 @@
         </v-window>
       </div>
       <div class="d-flex justify-center py-12">
-        <v-btn color="primary" size="large" class="unfilled-button">
-          {{ $t("common.submit") }}</v-btn
-        >
+        <v-btn color="primary" size="large" class="unfilled-button" @click="submit()">
+          {{ $t("common.submit") }}
+        </v-btn>
       </div>
     </v-sheet>
     <div style="height: 120px"></div>
   </v-container>
 </template>
 <script lang="ts" setup>
-const tab = ref("file");
+import { nanoid } from "nanoid";
+import { Claim, SourceInfo } from "@/components/claim/types";
+const claim = ref<Claim>({
+  title: "",
+  description: "",
+  sources: []
+});
 
+const tab = ref("file");
 const fileInput = ref<HTMLInputElement | null>(null);
 
 const openFileDialog = () => {
@@ -125,9 +136,20 @@ function handleFileDialogChange(event: Event) {
 }
 function handleFiles(files: FileList | File[] | null) {
   if (files) {
-    console.log("Selected file:", files[0].name);
-    // Handle the file here (e.g., read its content, upload to server, etc.)
+    for (let file of files) {
+      console.log("Selected file:", file);
+      claim.value.sources.push({
+        key: nanoid(10),
+        file,
+        sourceType: "",
+        sourceUrl: ""
+      });
+    }
   }
+}
+
+function submit() {
+  console.log("submit", JSON.parse(JSON.stringify(claim.value)));
 }
 </script>
 <style scoped>

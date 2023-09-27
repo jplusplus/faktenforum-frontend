@@ -27,6 +27,12 @@
   "locale": "en",
   "submitPage": {
     "acknowledgement": "Thank your for contributing!",
+    "claim": {
+      "label": {
+        "description": "Describe why this is important",
+        "title": "Give your claim a meaningful title"
+      }
+    },
     "dropzone": {
       "file": {
         "drop": "or drag and drop here",

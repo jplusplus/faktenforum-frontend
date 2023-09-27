@@ -2,11 +2,12 @@
 
 export default defineNuxtConfig({
   ssr: true,
-  devtools: { enabled: true },
-  modules: ["@nuxtjs/i18n", "vuetify-nuxt-module"],
+  // devtools: { enabled: true },
+  modules: ["@nuxtjs/i18n", "vuetify-nuxt-module", "@vueuse/nuxt"],
   experimental: {
     inlineSSRStyles: false
   },
+
   i18n: {
     locales: [
       {

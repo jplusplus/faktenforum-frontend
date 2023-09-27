@@ -27,6 +27,12 @@
   "locale": "de",
   "submitPage": {
     "acknowledgement": "Vielen Dank für Ihren Beitrag!",
+    "claim": {
+      "label": {
+        "description": "Beschreibe warum die Falschmeldung relevant ist",
+        "title": "Gib der Falschmeldung einen aussagekräftigen Titel"
+      }
+    },
     "dropzone": {
       "file": {
         "drop": "oder hierher ziehen",
