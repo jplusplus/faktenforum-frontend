@@ -5,7 +5,7 @@
     :key="source.key"
   >
     <v-list lines="two">
-      <v-list-item :title="source.file?.name" :subtitle="fileSizeToString(source.file)">
+      <v-list-item :title="source.file?.name" :subtitle="fileToSizeString(source.file)">
         <template v-if="source.file" v-slot:prepend>
           <v-container fluid class="pa-0 pr-2 ma-0">
             <v-img :width="70" aspect-ratio="4/3" cover :src="fileToUrl(source.file)" />
@@ -22,7 +22,7 @@
         </template>
       </v-list-item>
     </v-list>
-    <v-row>
+    <v-row v-if="!$props.hideSource">
       <v-col>
         <div class="pa-1">{{ $t("common.source") }}</div>
         <v-text-field
@@ -45,21 +45,12 @@ import { Claim } from "./types";
 
 type SourceListProps = {
   modelValue: Claim;
+  hideSource?: boolean;
 };
 
 const props = defineProps<SourceListProps>();
 const emit = defineEmits(["update:value"]);
 const value = useVModel(props, "modelValue", emit);
-
-function fileToUrl(file: File) {
-  return URL.createObjectURL(file);
-}
-function fileSizeToString(file: File | undefined) {
-  if (!file) {
-    return "";
-  }
-  return `${Math.round(file.size / 1000)} kb`;
-}
 
 function removeSource(sourceKey: string) {
   value.value.sources = value.value.sources.filter((source) => source.key !== sourceKey);

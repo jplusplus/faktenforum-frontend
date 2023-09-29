@@ -8,6 +8,7 @@
       v-slot="{ dropZoneActive }"
     >
       <div
+        v-if="!(singleFile && value.sources.length > 0)"
         class="flex-grow-1 d-flex flex-column justify-center"
         :style="{
           'background-color': dropZoneActive ? 'rgb(var(--v-theme-primary-darken-3' : 'transparent'
@@ -31,6 +32,29 @@
           {{ $t("submitPage.dropzone.file.drop") }}
         </div>
       </div>
+      <div v-else class="flex-grow-1 d-flex flex-column justify-center pa-10 align-center">
+        <v-list lines="two" width="300px">
+          <v-list-item
+            :title="value.sources[0].file?.name"
+            :subtitle="fileToSizeString(value.sources[0].file)"
+          >
+            <template v-if="value.sources[0].file" v-slot:prepend>
+              <v-container fluid class="pa-0 pr-2 ma-0">
+                <v-img
+                  :width="70"
+                  aspect-ratio="4/3"
+                  cover
+                  :src="fileToUrl(value.sources[0].file)"
+                />
+              </v-container>
+            </template>
+
+            <template v-slot:append>
+              <v-btn color="background" @click="clearFile()" size="small" icon="mdi-close"></v-btn>
+            </template>
+          </v-list-item>
+        </v-list>
+      </div>
     </common-file-drop-zone>
   </v-card>
 </template>
@@ -42,6 +66,7 @@ import { Claim } from "./types";
 
 type SourceFileDropZoneProps = {
   modelValue: Claim;
+  singleFile?: boolean;
 };
 
 const props = defineProps<SourceFileDropZoneProps>();
@@ -60,6 +85,15 @@ function handleFileDialogChange(event: Event) {
 }
 function handleFiles(files: FileList | File[] | null) {
   if (files) {
+    if (props.singleFile) {
+      value.value.sources.push({
+        key: nanoid(10),
+        file: files[0],
+        sourceType: "",
+        sourceUrl: ""
+      });
+      return;
+    }
     for (let file of files) {
       console.log("Selected file:", file);
       value.value.sources.push({
@@ -70,6 +104,10 @@ function handleFiles(files: FileList | File[] | null) {
       });
     }
   }
+}
+
+function clearFile() {
+  value.value.sources = [];
 }
 </script>
 
