@@ -1,9 +1,12 @@
 {
   "common": {
+    "add": "add",
     "no": "no",
     "source": "Source",
     "submit": "submit",
     "test": "test",
+    "type": "Type",
+    "update": "update",
     "upload": "upload",
     "yes": "yes"
   },
@@ -25,30 +28,43 @@
   },
   "locale": "en",
   "submitPage": {
+    "acknowledgement": "Thank your for contributing!",
     "claim": {
-      "dropzone": {
-        "claim": {
-          "label": "Enter a description",
-          "text": "Describe the missinformation you saw"
-        },
-        "file": "Select file or drag and drop here",
-        "link": {
-          "label": "Insert a Link",
-          "title": "Enter a link to a file to upload"
-        }
-      },
-      "tab": {
-        "claim": "Describe a claim",
-        "file": "Upload a file",
-        "link": "Direct link"
-      },
-      "text": "You can submit a claim in three different ways: upload a file, provide a direct link to a file or describe a misinformation you witnessed. Leave your email address so we can get back to you!",
-      "title": "Submit a claim"
+      "label": {
+        "description": "Describe why this is important",
+        "title": "Give your claim a meaningful title"
+      }
     },
+    "dropzone": {
+      "claim": {
+        "label": "Enter a description...",
+        "title": "Describe the misinformation you saw"
+      },
+      "file": {
+        "drop": "or drag and drop here",
+        "select": "Add file"
+      },
+      "link": {
+        "label": "Insert a Link",
+        "title": "Enter a link to a file to upload"
+      }
+    },
+    "info": {
+      "description": "Description",
+      "title": "Claim title"
+    },
+    "request": "Can you provide some additional information?",
     "source": {
-      "acknowledgement": "Thank your for contributing!",
+      "subtitle": "You can submit a source supporting or refuting the claim. Add the original text of your source or a link to the source. Describe why the source is important to your fact-check.",
       "text": "You can submit a source supporting or refuting the claim. Add the original text of your source or a link to the source. Describe why the source is important to your fact-check.",
       "title": "Submit a source"
-    }
+    },
+    "tab": {
+      "claim": "Descripte a claim",
+      "file": "Upload a file",
+      "link": "Direct link"
+    },
+    "text": "You can submit a claim in three different ways: upload a file, provide a direct link to a file or describe a misinformation you witnessed. Leave your email address so we can get back to you!",
+    "title": "Submit a claim"
   }
 }
