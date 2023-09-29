@@ -1,6 +1,6 @@
 export type SourceInfo = {
   key: string;
-  file: File;
+  file?: File;
   sourceType: string;
   sourceUrl: string;
 };

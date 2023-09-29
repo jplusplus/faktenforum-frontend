@@ -1,10 +1,12 @@
 {
   "common": {
+    "add": "add",
     "no": "no",
     "source": "Source",
     "submit": "submit",
     "test": "test",
     "type": "Type",
+    "update": "update",
     "upload": "upload",
     "yes": "yes"
   },
@@ -34,9 +36,13 @@
       }
     },
     "dropzone": {
+      "claim": {
+        "label": "Enter a description...",
+        "title": "Describe the misinformation you saw"
+      },
       "file": {
         "drop": "or drag and drop here",
-        "select": "Select file"
+        "select": "Add file"
       },
       "link": {
         "label": "Insert a Link",
@@ -49,10 +55,12 @@
     },
     "request": "Can you provide some additional information?",
     "source": {
+      "subtitle": "You can submit a source supporting or refuting the claim. Add the original text of your source or a link to the source. Describe why the source is important to your fact-check.",
       "text": "You can submit a source supporting or refuting the claim. Add the original text of your source or a link to the source. Describe why the source is important to your fact-check.",
       "title": "Submit a source"
     },
     "tab": {
+      "claim": "Descripte a claim",
       "file": "Upload a file",
       "link": "Direct link"
     },

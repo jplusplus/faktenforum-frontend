@@ -1,10 +1,12 @@
 {
   "common": {
+    "add": "hinzufügen",
     "no": "nein",
     "source": "Quelle",
     "submit": "senden",
     "test": "test_de",
     "type": "Typ",
+    "update": "update",
     "upload": "hochladen",
     "yes": "ja"
   },
@@ -34,6 +36,10 @@
       }
     },
     "dropzone": {
+      "claim": {
+        "label": "Gebe eine Beschreibung ein...",
+        "title": "Beschreibe die Falschmeldung, die du gesehen hast"
+      },
       "file": {
         "drop": "oder hierher ziehen",
         "select": "Datei auswählen"
@@ -49,10 +55,12 @@
     },
     "request": "Können Sie zusätzliche Informationen liefern?",
     "source": {
+      "subtitle": "Du kannst eine Quelle angeben, die die Behauptung unterstützt oder widerlegt. Füge den Originaltext Ihrer Quelle oder einen Link zur Quelle hinzu. Beschreibe , warum die Quelle für Ihren Fakten-Check wichtig ist.",
       "text": "Sie können eine Quelle angeben, die die Behauptung unterstützt oder widerlegt. Fügen Sie den Originaltext Ihrer Quelle oder einen Link zur Quelle hinzu. Beschreiben Sie, warum die Quelle für Ihren Fakten-Check wichtig ist.",
       "title": "Eine Quelle einreichen"
     },
     "tab": {
+      "claim": "Beschreibe eine Falschmeldung",
       "file": "Eine Datei hochladen",
       "link": "Direkter Link"
     },

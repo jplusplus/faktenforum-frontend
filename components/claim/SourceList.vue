@@ -5,8 +5,8 @@
     :key="source.key"
   >
     <v-list lines="two">
-      <v-list-item :title="source.file.name" :subtitle="fileSizeToString(source.file)">
-        <template v-slot:prepend>
+      <v-list-item :title="source.file?.name" :subtitle="fileSizeToString(source.file)">
+        <template v-if="source.file" v-slot:prepend>
           <v-container fluid class="pa-0 pr-2 ma-0">
             <v-img :width="70" aspect-ratio="4/3" cover :src="fileToUrl(source.file)" />
           </v-container>
@@ -31,6 +31,7 @@
           density="compact"
           single-line
           label="https://url.com"
+          :rules="[isValidUrl]"
           v-model="source.sourceUrl"
         ></v-text-field>
       </v-col>
@@ -53,7 +54,10 @@ const value = useVModel(props, "modelValue", emit);
 function fileToUrl(file: File) {
   return URL.createObjectURL(file);
 }
-function fileSizeToString(file: File) {
+function fileSizeToString(file: File | undefined) {
+  if (!file) {
+    return "";
+  }
   return `${Math.round(file.size / 1000)} kb`;
 }
 
