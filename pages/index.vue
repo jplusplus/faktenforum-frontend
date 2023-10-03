@@ -1,25 +1,38 @@
 <template>
-  <v-container class="pa-2 my-0" fluid>
+  <v-container class="my-2" fluid>
     <div class="h-spacer"></div>
-    <v-sheet tag="header" class="pa-10" color="primary">
-      <v-row no-gutters>
-        <v-col>
-          <h1 class="text-h3">
-            Faktenforum
-            <small class="text-subtitle-1"> Take action against missinformation </small>
-          </h1>
-        </v-col>
-      </v-row>
-      <v-row no-gutters>
-        <v-col cols="12" xs="12" sm="10" md="7" lg="6">
-          <div class="text-subtitle-1">
-            On CORRECTIV.Faktenforum people take action to counter disinformation and train their
-            media and information literacy skills. Journalistic experience is not required.
-          </div>
-        </v-col>
-      </v-row>
-
-      <div class="text-subtitle-1">Every contribution counts - which is yours?</div>
+    <v-sheet tag="header" color="primary" height="500">
+      <v-img src="/images/hero-bg.jpg" cover class="pa-10">
+        <v-row>
+          <v-col>
+            <h1 class="text-h2 font-weight-black">
+              Faktenforum
+            </h1>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col>
+            <h2 class="text-h3">
+              Take action against missinformation
+            </h2>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col cols="12" xs="12" sm="10" md="7" lg="6">
+            <div class="text-subtitle-1">
+              On CORRECTIV.Faktenforum people take action to counter disinformation and train their
+              media and information literacy skills. Journalistic experience is not required.
+            </div>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col>
+            <div class="text-subtitle-1 text-weight-bold">
+              Every contribution counts - which is yours?
+            </div>
+          </v-col>
+        </v-row>
+      </v-img>
     </v-sheet>
     <div class="h-spacer"></div>
     <v-sheet tag="section" class="pa-10">
@@ -97,6 +110,10 @@ const learnMoreItems = ref([
 }
 h1 small {
   display: block;
+}
+h2.text-h3 {
+  font-family: "JetBrainsMono" !important;
+  font-weight: 600;
 }
 .v-container > :nth-child(1).h-spacer {
   height: 10px;
