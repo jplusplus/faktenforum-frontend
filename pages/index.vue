@@ -79,6 +79,57 @@
         </v-col>
       </v-row>
     </v-sheet>
+
+    <div class="h-spacer"></div>
+    <v-sheet tag="section" class="pa-10">
+      <v-row>
+        <v-col>
+          <h2 class="text-h2">{{ $t("landingPage.whatWeDo.intro.title") }}</h2>
+          <span>
+            {{ $t("landingPage.whatWeDo.intro.text") }}
+          </span>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col cols="12" xs="12" sm="6" md="4" lg="4" xl="4">
+          <v-card flat>
+            <template v-slot:title>
+              <v-img height="200px" cover src="https://dummyimage.com/4:3x300/" />
+              <h4 class="text-h4 mt-1 mb-2">Fact Check #1</h4>
+            </template>
+
+            <template v-slot:subtitle>
+              Tempus urna et pharetra pharetra massa massa ultricies mi quis hendrerit dolor
+            </template>
+          </v-card>
+        </v-col>
+        <v-col cols="12" xs="12" sm="6" md="4" lg="4" xl="4">
+          <v-card flat>
+            <template v-slot:title>
+              <v-img height="200px" cover src="https://dummyimage.com/4:3x300/" />
+              <h4 class="text-h4 mt-1 mb-2">Fact Check #2</h4>
+            </template>
+
+            <template v-slot:subtitle>
+              In metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci
+            </template>
+          </v-card>
+        </v-col>
+        <v-col cols="12" xs="12" sm="6" md="4" lg="4" xl="4">
+          <v-card flat>
+            <template v-slot:title>
+              <v-img height="200px" cover src="https://dummyimage.com/4:3x300/" />
+              <h4 class="text-h4 mt-1 mb-2">Fact Check #3</h4>
+            </template>
+
+            <template v-slot:subtitle>
+              Quis ipsum suspendisse ultrices gravida dictum fusce ut placerat orci nulla
+              pellentesque
+            </template>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-sheet>
   </v-container>
 </template>
 <script lang="ts" setup>

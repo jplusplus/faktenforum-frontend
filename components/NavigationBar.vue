@@ -2,7 +2,7 @@
   <v-app-bar
     color="background"
     elevation="0"
-    class="pa-2 my-4"
+    class="pa-2 pt-6 mb-4"
     density="compact"
     scroll-behavior="hide elevate"
     height="60"
