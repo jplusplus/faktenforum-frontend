@@ -5,16 +5,12 @@
       <v-img src="/images/hero-bg.jpg" cover class="pa-10">
         <v-row>
           <v-col>
-            <h1 class="text-h2 font-weight-black">
-              Faktenforum
-            </h1>
+            <h1 class="text-h2 font-weight-black">Faktenforum</h1>
           </v-col>
         </v-row>
         <v-row>
           <v-col>
-            <h2 class="text-h3">
-              Take action against missinformation
-            </h2>
+            <h2 class="text-h3">Take action against missinformation</h2>
           </v-col>
         </v-row>
         <v-row>
@@ -38,7 +34,7 @@
     <v-sheet tag="section" class="pa-10">
       <v-row>
         <v-col cols="12" xs="12" sm="6" md="4" lg="4" xl="4">
-          <h4 class="text-h4">{{ $t("landingPage.callToActions.join.title") }}</h4>
+          <h4 class="text-h4 mb-2">{{ $t("landingPage.callToActions.join.title") }}</h4>
           <span>
             {{ $t("landingPage.callToActions.join.text") }}
           </span>
@@ -48,20 +44,21 @@
             label="Email address"
             dense
             variant="outlined"
+            class="mt-4"
           />
           <v-btn class="w-100" color="primary" variant="flat"> Sign Up </v-btn>
         </v-col>
         <v-col cols="12" xs="12" sm="6" md="4" lg="4" xl="4">
-          <h4 class="text-h4">{{ $t("landingPage.callToActions.submit.title") }}</h4>
+          <h4 class="text-h4 mb-2">{{ $t("landingPage.callToActions.submit.title") }}</h4>
           <span>
             {{ $t("landingPage.callToActions.submit.text") }}
           </span>
           <NuxtLink to="/submission/">
-            <v-btn class="w-100" color="primary" variant="flat"> Submit Claim </v-btn>
+            <v-btn class="w-100 mt-4" color="primary" variant="flat"> Submit Claim </v-btn>
           </NuxtLink>
         </v-col>
         <v-col cols="12" xs="12" sm="12" md="4" lg="4" xl="4">
-          <h4 class="text-h4">{{ $t("landingPage.callToActions.learn.title") }}</h4>
+          <h4 class="text-h4 mb-2">{{ $t("landingPage.callToActions.learn.title") }}</h4>
           <span>
             {{ $t("landingPage.callToActions.learn.text") }}
           </span>
@@ -84,7 +81,7 @@
     <v-sheet tag="section" class="pa-10">
       <v-row>
         <v-col>
-          <h2 class="text-h2">{{ $t("landingPage.whatWeDo.intro.title") }}</h2>
+          <h2 class="text-h2 mb-4">{{ $t("landingPage.whatWeDo.intro.title") }}</h2>
           <span>
             {{ $t("landingPage.whatWeDo.intro.text") }}
           </span>
@@ -137,20 +134,20 @@ const learnMoreItems = ref([
   {
     prependAvatar: "https://dummyimage.com/4:3x60/",
     title: "10 tips",
-    subtitle: `<span class="text-primary">Ali Connors</span> &mdash; I'll be in your neighborhood doing errands this weekend. Do you want to hang out?`
+    subtitle: `<span class="font-italic">Ali Connors</span> &mdash; I'll be in your neighborhood doing errands this weekend. Do you want to hang out?`
   },
   { type: "divider", inset: false },
   {
     prependAvatar: "https://dummyimage.com/4:3x60/",
     title: "Infoflyer",
-    subtitle: `<span class="text-primary">to Alex, Scott, Jennifer</span> &mdash; Wish I could come, but I'm out of town this weekend.`
+    subtitle: `<span class="font-italic">to Alex, Scott, Jennifer</span> &mdash; Wish I could come, but I'm out of town this weekend.`
   },
   { type: "divider", inset: false },
   {
     prependAvatar: "https://dummyimage.com/4:3x60/",
     title: "How to",
     subtitle:
-      '<span class="text-primary">Sandra Adams</span> &mdash; Do you have Paris recommendations? Have you ever been?'
+      '<span class="font-italic">Sandra Adams</span> &mdash; Do you have Paris recommendations? Have you ever been?'
   }
 ]);
 </script>
