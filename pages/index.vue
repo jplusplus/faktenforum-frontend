@@ -56,7 +56,7 @@
           <span>
             {{ $t("landingPage.callToActions.submit.text") }}
           </span>
-          <NuxtLink to="/submit">
+          <NuxtLink to="/submission/">
             <v-btn class="w-100" color="primary" variant="flat"> Submit Claim </v-btn>
           </NuxtLink>
         </v-col>

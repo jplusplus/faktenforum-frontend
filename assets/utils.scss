@@ -11,6 +11,10 @@
   background-color: rgb(var(--v-theme-surface-primary)) !important;
 }
 
+.background-color-surface {
+  background-color: rgb(var(--v-theme-surface)) !important;
+}
+
 .dashed-primary-outline {
   border: 2px dashed rgb(var(--v-theme-primary-lighten-3));
   border-radius: 0px;
