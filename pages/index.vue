@@ -53,6 +53,8 @@
             {{ $t("landingPage.callToActions.learn.text") }}
           </span>
 
+          <Calendar></Calendar>
+
           <v-list :items="learnMoreItems" item-props lines="two">
             <template v-slot:subtitle="{ subtitle }">
               <div v-html="subtitle"></div>
@@ -69,6 +71,8 @@
   </v-container>
 </template>
 <script lang="ts" setup>
+import Calendar from "~/components/Calendar.vue";
+
 const learnMoreItems = ref([
   {
     prependAvatar: "https://dummyimage.com/4:3x60/",
